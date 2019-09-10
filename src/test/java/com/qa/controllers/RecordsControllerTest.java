@@ -35,7 +35,7 @@ public class RecordsControllerTest {
     private TestRestTemplate restTemplate;
 
     @Test
-    public void testGetAllRecords(){
+    public void testGetRecords() {
         List<Record> recordList = new ArrayList<>();
         Record record = new Record();
         record.setArtist("Bob Marley");
@@ -46,12 +46,12 @@ public class RecordsControllerTest {
         recordList.add(record);
 
         when(repository.findAll()).thenReturn(recordList);
-        assertEquals(recordController.listAllRecords().get(0).getArtist(),"Bob Marley");
+        assertEquals(recordController.listAllRecords().get(0).getArtist(), "Bob Marley");
         //assertThat(this.restTemplate.getForObject("http://localhost:" + port + "/record", List.class)).contains("hello world!");
     }
 
     @Test
-    public void testGetRecordById(){
+    public void testGetRecordById() {
         List<Record> recordList = new ArrayList<>();
         Record record = new Record();
         record.setArtist("Bob Marley");
@@ -63,9 +63,67 @@ public class RecordsControllerTest {
         recordList.add(record);
 
         when(repository.findOne(26l)).thenReturn(record);
-        assertEquals(recordController.getRecord(26l).getArtist(),"Bob Marley");
+        assertEquals(recordController.getRecord(26l).getArtist(), "Bob Marley");
+    }
+
+    @Test
+    public void testDeleteRecordById() {
+
+        Record record = new Record();
+        record.setArtist("Bob Marley");
+        record.setLabel("IFS330");
+        record.setTitle("Exodus");
+        record.setId(26l);
+        record.setYear(1994);
+        record.setValue(25);
+        //recordList.add(record);
+
+        when(repository.findOne(26l)).thenReturn(record);
+        repository.delete(26l);
+        assertEquals(recordController.deleteRecord(26l), true);
+
+    }
+
+    @Test
+    public void testAddRecord() {
+        List<Record> recordList = new ArrayList<>();
+        Record record = new Record();
+        record.setArtist("Bob Marley");
+        record.setLabel("IFS330");
+        record.setTitle("Exodus");
+        record.setId(26l);
+        record.setYear(1994);
+        record.setValue(25);
+        recordList.add(record);
+
+        when(repository.saveAndFlush(record)).thenReturn(record);
+        assertEquals(recordController.addRecords(record).getArtist(), "Bob Marley");
+
+
     }
 
 
+    @Test
+    public void testUpdateRecord() {
 
+        Record record = new Record();
+        record.setArtist("Bob Marley");
+        record.setLabel("IFS330");
+        record.setTitle("Exodus");
+        record.setId(26l);
+        record.setYear(1994);
+        record.setValue(25);
+        when(repository.findOne(26l)).thenReturn(record);
+
+        Record recordUpdated = new Record();
+        recordUpdated.setArtist("David Bowie");
+        recordUpdated.setLabel("IFS330");
+        recordUpdated.setTitle("Exodus");
+        recordUpdated.setId(26l);
+        recordUpdated.setYear(1994);
+        recordUpdated.setValue(25);
+
+        assertEquals(recordController.updateRecord(26l,recordUpdated).getArtist(), "David Bowie");
+
+    }
 }

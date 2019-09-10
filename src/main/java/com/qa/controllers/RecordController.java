@@ -30,8 +30,8 @@ public class RecordController {
 
 	@RequestMapping(value = "record", method = RequestMethod.POST)
 
-	public Record addNotes(@RequestBody Record note) {
-		return repository.saveAndFlush(note);
+	public Record addRecords(@RequestBody Record record) {
+		return repository.saveAndFlush(record);
 	}
 
 	@Transactional
@@ -48,9 +48,9 @@ public class RecordController {
 	}
 
 	@RequestMapping(value = "record/{id}", method = RequestMethod.DELETE)
-	public Record deleteRecord(@PathVariable Long id) {
+	public Boolean deleteRecord(@PathVariable Long id) {
 		Record existing = repository.findOne(id);
 		repository.delete(existing);
-		return existing;
+		return true;
 	}
 }
