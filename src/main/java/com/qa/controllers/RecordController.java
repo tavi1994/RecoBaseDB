@@ -24,7 +24,7 @@ public class RecordController {
 
 	@RequestMapping(value = "record", method = RequestMethod.GET)
 
-	public List<Record> listAllNotes() {
+	public List<Record> listAllRecords() {
 		return repository.findAll();
 	}
 
@@ -43,12 +43,12 @@ public class RecordController {
 	}
 
 	@RequestMapping(value = "record/{id}", method = RequestMethod.GET)
-	public Record getNote(@PathVariable Long id) {
+	public Record getRecord(@PathVariable Long id) {
 		return repository.findOne(id);
 	}
 
 	@RequestMapping(value = "record/{id}", method = RequestMethod.DELETE)
-	public Record deleteNote(@PathVariable Long id) {
+	public Record deleteRecord(@PathVariable Long id) {
 		Record existing = repository.findOne(id);
 		repository.delete(existing);
 		return existing;
