@@ -98,8 +98,6 @@ public class RecordsControllerTest {
 
         when(repository.saveAndFlush(record)).thenReturn(record);
         assertEquals(recordController.addRecords(record).getArtist(), "Bob Marley");
-
-
     }
 
 
