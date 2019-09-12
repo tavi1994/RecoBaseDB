@@ -15,14 +15,14 @@ public class Record {
 	String label;
 	String title;
 	String artist;
-	int year;
-	int value;
+	String year;
+	String value;
 
 	public Record() {
 		super();
 	}
 
-	public Record(String label, String title, String artist, int year, int value) {
+	public Record(String label, String title, String artist, String year, String value) {
 		super();
 		this.label = label;
 		this.title = title;
@@ -64,19 +64,19 @@ public class Record {
 		this.artist = artist;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
-	public int getValue() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 
