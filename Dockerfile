@@ -6,3 +6,6 @@ COPY server/ .
 RUN mvn compile
 CMD mvn spring-boot:run
 EXPOSE 8444/tcp
+
+FROM httpd:2.4
+COPY ./client/ /usr/local/apache2/htdocs/
