@@ -15,68 +15,21 @@ public class Record {
 	String label;
 	String title;
 	String artist;
-	String year;
-	String value;
+	Integer year;
+	Integer value;
 
 	public Record() {
 		super();
 	}
 
-	public Record(String label, String title, String artist, String year, String value) {
+	
+	
+	public Record(String label, String title, String artist, Integer year, Integer value) {
 		super();
 		this.label = label;
 		this.title = title;
 		this.artist = artist;
 		this.year = year;
-		this.value = value;
-
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public String getTitle() {
-		return title;
-	}
-
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	public String getArtist() {
-		return artist;
-	}
-
-	public void setArtist(String artist) {
-		this.artist = artist;
-	}
-
-	public String getYear() {
-		return year;
-	}
-
-	public void setYear(String year) {
-		this.year = year;
-	}
-
-	public String getValue() {
-		return value;
-	}
-
-	public void setValue(String value) {
 		this.value = value;
 	}
 
@@ -87,4 +40,78 @@ public class Record {
 		this.year = record.year;
 		this.value = record.value;
 	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+	public String getLabel() {
+		return label;
+	}
+
+
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+
+	public String getArtist() {
+		return artist;
+	}
+
+
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+
+
+	public Integer getYear() {
+		return year;
+	}
+
+
+
+	public void setYear(Integer year) {
+		this.year = year;
+	}
+
+
+
+	public Integer getValue() {
+		return value;
+	}
+
+
+
+	public void setValue(Integer value) {
+		this.value = value;
+	}
+	
+	
 }
