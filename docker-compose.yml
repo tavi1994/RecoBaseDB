@@ -1,0 +1,6 @@
+version: '2'
+services:
+  web:
+    image: tavi/backend:latest
+    ports:
+      - "8444:8444"
