@@ -2,10 +2,7 @@ FROM ubuntu:latest
 RUN apt update
 RUN apt install -y openjdk-8-jdk
 RUN apt install -y maven
-COPY server/ .
+COPY . .
 RUN mvn compile
 CMD mvn spring-boot:run
 EXPOSE 8444/tcp
-
-FROM httpd:2.4
-COPY ./client/ /usr/local/apache2/htdocs/
