@@ -28,7 +28,7 @@ function registerRecord() {
     req.onload = () => {
         location.href = "index.html";
     };
-    req.open('POST', 'http://35.235.59.31:8444/record');
+    req.open('POST', 'http://34.89.0.182:8444/record');
     req.setRequestHeader('Content-Type', 'application/json');
     req.send(JSON.stringify(formDataObj));
     //console.log(JSON.stringify(formDataObj));
@@ -74,7 +74,7 @@ function onLoadRec() {
             tableEntries(recordTable, field["label"], field["title"], field["artist"], field["year"], "£" + field["value"]);
         }
     }
-    recReq.open('GET', 'http://35.235.59.31:8444/record');
+    recReq.open('GET', 'http://34.89.0.182:8444/record');
     recReq.send();
 
 }
