@@ -24,13 +24,13 @@ public class RecordController {
 
 	@RequestMapping(value = "record", method = RequestMethod.GET)
 
-	public List<Record> listAllRecords() {
+	public List<Record> listAllNotes() {
 		return repository.findAll();
 	}
 
 	@RequestMapping(value = "record", method = RequestMethod.POST)
 
-	public Record addRecords(@RequestBody Record record) {
+	public Record addRecord(@RequestBody Record record) {
 		return repository.saveAndFlush(record);
 	}
 
@@ -43,14 +43,14 @@ public class RecordController {
 	}
 
 	@RequestMapping(value = "record/{id}", method = RequestMethod.GET)
-	public Record getRecord(@PathVariable Long id) {
+	public Record getNote(@PathVariable Long id) {
 		return repository.findOne(id);
 	}
 
 	@RequestMapping(value = "record/{id}", method = RequestMethod.DELETE)
-	public Boolean deleteRecord(@PathVariable Long id) {
+	public Record deleteNote(@PathVariable Long id) {
 		Record existing = repository.findOne(id);
 		repository.delete(existing);
-		return true;
+		return existing;
 	}
 }
